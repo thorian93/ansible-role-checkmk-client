@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: checkmk_client
   author: CaffeineCollective
   description: Ansible Role Checkmk Client
   license: "license (MIT)"
