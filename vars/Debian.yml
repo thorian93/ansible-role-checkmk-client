@@ -1,1 +1,5 @@
 ---
+checkmk_client_client_download: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/check-mk-agent_{{ checkmk_client_version }}-1_all.deb"
+checkmk_client_checkmk_plugins_custom: []
+  # - name: dummy
+  #   interval:
