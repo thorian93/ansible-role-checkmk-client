@@ -8,3 +8,28 @@
 
 - name: "Include OS Family specific Variables."
   include_vars: "{{ ansible_os_family }}.yml"
+
+- name: "Download Checkmk Plugin Files."
+  become: 'false'
+  get_url:
+    url: "{{ checkmk_client_plugins_url }}{{ item.name }}"
+    dest: "/tmp/{{ item.name }}"
+    validate_certs: no
+  delegate_to: 127.0.0.1
+  run_once: 'true'
+  with_items: "{{ checkmk_client_plugins_builtin }}"
+
+- name: "Download Checkmk Plugin Configurations."
+  become: 'false'
+  get_url:
+    url: "{{ checkmk_client_configs_url }}{{ item }}"
+    dest: "/tmp/{{ item }}"
+    validate_certs: no
+  delegate_to: 127.0.0.1
+  run_once: 'true'
+  with_items:
+    - apache_status.cfg
+    - logwatch.cfg
+
+- name: Include OS Family specific Tasks.
+  include_tasks: "{{ ansible_os_family }}.yml"
