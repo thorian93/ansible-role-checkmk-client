@@ -1,8 +1,8 @@
 ---
 galaxy_info:
   role_name: checkmk_client
-  author: CaffeineCollective
-  description: Ansible Role Checkmk Client
+  author: thorian93
+  description: Setup the Checkmk Monitoring Agent
   license: "license (MIT)"
 
   min_ansible_version: 2.9
@@ -12,6 +12,7 @@ galaxy_info:
     - server
     - monitoring
     - checkmk
+    - check_mk
     - infrastructure
 
   platforms:
@@ -25,15 +26,13 @@ galaxy_info:
         - Buster
     - name: Fedora
       versions:
-        - 30
-        - 31
         - 32
+        - 33
     - name: opensuse
       versions:
         - 15.2
         - 42.2
     - name: Ubuntu
       versions:
-        - Xenial
         - Bionic
         - Focal
