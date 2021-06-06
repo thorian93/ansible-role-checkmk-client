@@ -33,4 +33,3 @@
 
 - name: Include OS Family specific Tasks.
   ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
-
