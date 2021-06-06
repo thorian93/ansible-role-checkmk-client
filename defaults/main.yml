@@ -13,9 +13,8 @@ checkmk_client_stable_os:
 
 checkmk_client_url: "https://{{ inventory_hostname }}"
 checkmk_client_site: 'main'
-checkmk_client_plugins_url: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/plugins/"
-checkmk_client_configs_url: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/cfg_examples/"
 checkmk_client_version: '2.0.0p5'
+
 checkmk_client_plugins_builtin:
   - name: apache_status.py
     interval:

@@ -1,0 +1,3 @@
+---
+checkmk_client_plugins_url: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/plugins/"
+checkmk_client_configs_url: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/cfg_examples/"

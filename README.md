@@ -1,10 +1,10 @@
 # Ansible Role: Checkmk Client
 
- This role sets up the Checkmk Agent on RHEL/CentOS, Debian/Ubuntu and Fedora servers. 
+ This role sets up the Checkmk Agent on Debian/Ubuntu, RHEL/CentOS and Fedora servers. 
 
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/CHANGEME?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
-[![Ansible Role: Webserver](https://img.shields.io/ansible/quality/CHANGEME?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/d/CHANGEME?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/55241?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/quality/55241?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/d/55241?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
 
 ## Here be Dragons!
 
@@ -23,7 +23,23 @@ No special requirements; note that this role requires root access, so either run
 
 Available variables are listed below, along with default values (see `vars/Debian.yml` and `vars/RedHat.yml`):
 
-TBD
+    checkmk_client_url: "https://{{ inventory_hostname }}"
+
+The base URL of the monitoring server on which the client will be monitored.
+
+    checkmk_client_site: 'main'
+
+The Checkmk site in which the client will be monitored.
+
+    checkmk_client_version: '2.0.0p5'
+
+The client version to install. This has to match the server version.
+
+    checkmk_client_plugins_builtin:
+      - name: $NAME
+        interval: $INTERVAL
+
+A list of plugins and their execution interval. See `defaults/main.yml` for the builtin list.
 
 ## Dependencies
 
@@ -66,4 +82,4 @@ MIT
 
 ## Author Information
 
-This role was created in 2020 by the [CaffeineCollective](https://github.com/CaffeineCollective).
+This role was created in 2021 by [Thorian93](http://thorian93.de/).
