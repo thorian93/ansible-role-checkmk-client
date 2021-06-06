@@ -1,30 +1,30 @@
 ---
 - name: "Preflight - Fail if target host is not stable for this Role."
-  fail:
+  ansible.builtin.fail:
     msg: "This role is not stable for the target operating system, {{ ansible_distribution }} {{ ansible_distribution_major_version }}."
   when: (ansible_distribution is not defined) or
         (ansible_distribution_version is not defined) or
         (ansible_distribution+" "+ansible_distribution_major_version not in checkmk_client_stable_os)
 
 - name: "Include OS Family specific Variables."
-  include_vars: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
 
 - name: "Download Checkmk Plugin Files."
   become: 'false'
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ checkmk_client_plugins_url }}{{ item.name }}"
     dest: "/tmp/{{ item.name }}"
-    validate_certs: no
+    validate_certs: 'false'
   delegate_to: 127.0.0.1
   run_once: 'true'
   with_items: "{{ checkmk_client_plugins_builtin }}"
 
 - name: "Download Checkmk Plugin Configurations."
   become: 'false'
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ checkmk_client_configs_url }}{{ item }}"
     dest: "/tmp/{{ item }}"
-    validate_certs: no
+    validate_certs: 'false'
   delegate_to: 127.0.0.1
   run_once: 'true'
   with_items:
@@ -32,4 +32,5 @@
     - logwatch.cfg
 
 - name: Include OS Family specific Tasks.
-  include_tasks: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
+
