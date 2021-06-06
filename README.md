@@ -2,9 +2,9 @@
 
  This role sets up the Checkmk Agent on Debian/Ubuntu, RHEL/CentOS and Fedora servers. 
 
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
-[![Ansible Role: Webserver](https://img.shields.io/ansible/quality/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/d/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
+[![Ansible Role: Checkmk Client](https://img.shields.io/ansible/role/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
+[![Ansible Role: Checkmk Client](https://img.shields.io/ansible/quality/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
+[![Ansible Role: Checkmk Client](https://img.shields.io/ansible/role/d/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
 
 ## Here be Dragons!
 
