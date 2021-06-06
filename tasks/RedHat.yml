@@ -1,0 +1,61 @@
+---
+- name: "Download Checkmk Monitoring Agent Setup."
+  become: no
+  ansible.builtin.get_url:
+    url: "{{ checkmk_client_client_download }}"
+    dest: /tmp/monitoring_agent.rpm
+    validate_certs: no
+  delegate_to: 127.0.0.1
+
+- name: "Upload Checkmk Monitoring Agent Setup."
+  ansible.builtin.copy:
+    src: /tmp/monitoring_agent.rpm
+    dest: /tmp/monitoring_agent.rpm
+    mode: 0700
+    owner: root
+    group: root
+
+- name: "Install Monitoring Agent."
+  ansible.builtin.yum:
+    name: /tmp/monitoring_agent.rpm
+    state: present
+
+- name: "Create custom Interval Directories."
+  ansible.builtin.file:
+    path: "/usr/lib/check_mk_agent/plugins/{{ item.interval }}/"
+    state: directory
+  with_items:
+    - "{{ checkmk_client_plugins_builtin }}"
+    - "{{ checkmk_client_checkmk_plugins_custom }}"
+
+- name: "Upload Checkmk Builtin Plugin Files."
+  ansible.builtin.copy:
+    src: "/tmp/{{ item.name }}"
+    dest: "/usr/lib/check_mk_agent/plugins/{{ item.interval }}/{{ item.name }}"
+    mode: 0755
+    owner: root
+    group: root
+  with_items: "{{ checkmk_client_plugins_builtin }}"
+
+- name: "Upload Checkmk Custom Plugin Files."
+  ansible.builtin.copy:
+    src: "{{ item.name }}"
+    dest: "/usr/lib/check_mk_agent/plugins/{{ item.interval }}/{{ item.name }}"
+    mode: 0755
+    owner: root
+    group: root
+  with_items: "{{ checkmk_client_checkmk_plugins_custom }}"
+  when: checkmk_client_checkmk_plugins_custom is defined
+
+- name: "Upload Checkmk Configuration Files if they dont exist."
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: "/etc/check_mk/{{ item }}"
+    force: no
+    mode: 0640
+    owner: root
+    group: root
+  with_items:
+    - apache_status.cfg
+    - logwatch.cfg
+    - mysql.cfg

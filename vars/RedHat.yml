@@ -1,5 +1,5 @@
 ---
 checkmk_client_client_download: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/check-mk-agent-{{ checkmk_client_version }}-1.noarch.rpm"
 checkmk_client_checkmk_plugins_custom: []
-  # - name: yum
-  #   interval: 21600
+# - name: yum
+#   interval: 21600
