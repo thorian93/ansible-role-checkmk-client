@@ -11,32 +11,32 @@ checkmk_client_stable_os:
   - Ubuntu 18
   - Ubuntu 20
 
-checkmk_client_url: "http://{{ inventory_hostname }}"
+checkmk_client_url: "https://{{ inventory_hostname }}"
 checkmk_client_site: 'main'
 checkmk_client_plugins_url: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/plugins/"
 checkmk_client_configs_url: "{{ checkmk_client_url }}/{{ checkmk_client_site }}/check_mk/agents/cfg_examples/"
 checkmk_client_version: '2.0.0p5'
 checkmk_client_plugins_builtin:
-  # - name: apache_status
-  #   interval:
+  - name: apache_status.py
+    interval:
   - name: lvm
     interval:
   - name: mk_logins
     interval:
   - name: mk_apt
     interval: 21600
-  # - name: mk_logwatch
-  #   interval:
+  - name: mk_logwatch.py
+    interval:
   - name: mk_mysql
     interval:
-  # - name: mk_postgres
-  #   interval:
+  - name: mk_postgres.py
+    interval:
   - name: netstat.linux
     interval:
   - name: nfsexports
     interval: 7200
-  # - name: nginx_status
-  #   interval:
+  - name: nginx_status.py
+    interval:
   - name: mk_inventory.linux
     interval: 43200
   - name: mk_iptables
