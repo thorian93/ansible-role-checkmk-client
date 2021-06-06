@@ -2,9 +2,9 @@
 
  This role sets up the Checkmk Agent on Debian/Ubuntu, RHEL/CentOS and Fedora servers. 
 
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/55241?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
-[![Ansible Role: Webserver](https://img.shields.io/ansible/quality/55241?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/d/55241?style=flat-square)](https://galaxy.ansible.com/CaffeineCollective/ansible-role-checkmk-client)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/quality/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/d/55241?style=flat-square)](https://galaxy.ansible.com/thorian93/checkmk_client)
 
 ## Here be Dragons!
 
@@ -16,7 +16,7 @@ No special requirements; note that this role requires root access, so either run
 
     - hosts: foobar
       roles:
-        - role: ansible-role-checkmk-client
+        - role: thorian93.checkmk_client
           become: yes
 
 ## Role Variables
@@ -66,7 +66,7 @@ Kudos to [HarryHarcourt](https://github.com/HarryHarcourt) for this idea!
       hosts: all
       become: yes
       roles:
-        - ansible-role-checkmk-client
+        - thorian93.checkmk_client
 
 ## Contributing
 
