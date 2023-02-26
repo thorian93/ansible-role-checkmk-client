@@ -1,3 +1,8 @@
+# This repository is deprecated!
+Use https://github.com/tribe29/ansible-collection-tribe29.checkmk/ instead!
+
+---
+
 # Ansible Role: Checkmk Client
 
  This role sets up the Checkmk Agent on Debian/Ubuntu, RHEL/CentOS and Fedora servers. 
